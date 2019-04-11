@@ -11,12 +11,10 @@ class Contacts extends Component {
 	};
 
 	render() {
-		return (
-			<div>
-				<List contacts={this.props.contacts}/>
-				<Form addContact={this.props.addContact}/>
-			</div>
-		);
+		return (<div>
+			<List contacts={this.props.contacts}/>
+			<Form addContact={this.props.addContact}/>
+		</div>);
 	}
 }
 

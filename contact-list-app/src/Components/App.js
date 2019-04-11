@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../App.css';
 
 import Contacts from './Contacts';
@@ -10,33 +10,29 @@ class App extends Component {
 	}
 
 	state = {
-		contacts: [{
-			name: 'Mehmet',
-			phone: '123131231'
-		},{
-			name: 'Mesut',
-			phone: '9384590834905'
-		}]
+		contacts: [
+			{
+				name: 'Semih Raif Gürel',
+				phone: '05457748735'
+			}, {
+				name: 'Büşra Gürel',
+				phone: '05550448745'
+			}
+		]
 	};
 
-	addContact(contact){
-	  const { contacts } = this.state;
-	  contacts.push(contact);
+	addContact(contact) {
+		const {contacts} = this.state;
+		contacts.push(contact);
 
-	  this.setState({
-      contacts
-    });
-  }
+		this.setState({contacts});
+	}
 
-  render() {
-    return (
-      <div className="App">
-				<Contacts
-          addContact={this.addContact}
-          contacts={this.state.contacts}/>
-      </div>
-    );
-  }
+	render() {
+		return (<div className="App">
+			<Contacts addContact={this.addContact} contacts={this.state.contacts}/>
+		</div>);
+	}
 }
 
 export default App;

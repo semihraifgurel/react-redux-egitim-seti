@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends Component {
-	constructor(){
+	constructor() {
 		super();
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -17,45 +17,33 @@ class Form extends Component {
 		phone: ''
 	};
 
-	onChange(e){
+	onChange(e) {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
 	}
 
-	onSubmit(e){
+	onSubmit(e) {
 		e.preventDefault();
-		this.props.addContact({
-			...this.state
-		});
 
-		this.setState({
-			name: '',
-			phone: ''
-		})
+		if (this.state.name !== '' &&  this.state.phone !== '') {
+			this.props.addContact({
+				...this.state
+			});
+		}
+
+
+		this.setState({name: '', phone: ''})
 	}
 
 	render() {
-		return (
-			<div>
-				<form onSubmit={this.onSubmit}>
-					<input
-						name="name"
-						id="name"
-						value={this.state.name}
-						onChange={this.onChange}
-						placeholder="Enter a name"/>
-					<br/>
-					<input
-						name="phone"
-						id="phone"
-						value={this.state.phone}
-						onChange={this.onChange}
-						placeholder="Enter a phone"/>
-					<button>Add</button>
-				</form>
-			</div>
-		);
+		return (<div>
+			<form className="d-flex" onSubmit={this.onSubmit}>
+				<input name="name" id="name" value={this.state.name} onChange={this.onChange} placeholder="Enter a name"/>
+				<input name="phone" id="phone" value={this.state.phone} onChange={this.onChange} placeholder="Enter a phone"/>
+				<button>Add</button>
+			</form>
+		</div>);
 	}
 }
 
