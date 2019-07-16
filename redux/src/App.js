@@ -19,9 +19,11 @@ class App extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div className="App">
 
+				<h2>{  this.props.user }</h2>
 				<h2>{  this.props.user }</h2>
 				<button onClick={this.onUpdateUser}>Change the name</button>
 			</div>
@@ -29,10 +31,9 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
 	return {
-		...state,
-		myCount: props.count + 2
+		...state
 	};
 };
 
